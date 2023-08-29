@@ -10,7 +10,7 @@
     "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" --quiet --fix",
     "serve": "node dist/server.js",
     "build": "npm run lint && npm run build-ts && npm run copy-static-assets",
-    "start": "npm run serve",
+    "start": "npm run serve && set NODE_ENV=production",
     "test:integration:heroku": "newman run integrationtests/node-koa-typescript.postman_collection.json -e integrationtests/env/heroku-dev.postman_environment.json",
     "test:integration:local": "newman run integrationtests/node-koa-typescript.postman_collection.json -e integrationtests/env/local-dev.postman_environment.json",
     "test:load": "locust --headless -u 50 -r 10 -t 60s -f loadtests/locustfile.py --host=https://node-typescript-koa-rest.herokuapp.com",
